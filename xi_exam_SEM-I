@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Class XI Examination Programme 2026 - Revised</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #fbf9f2;
+    color: #12234f;
+  }
+  html, body { height: 297mm; }
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    padding: 3.3mm 8mm 3.3mm 8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8mm;
+  }
+  .sheet > * { flex-shrink: 0; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #12296b 0%, #1c3a8a 100%);
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 2.7mm 7mm;
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .header .crest {
+    width: 19mm;
+    height: 19mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, #dfe8ff 0%, #a9bce8 100%);
+    border: 2.5px solid #f2c94c;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7pt;
+    text-align: center;
+    color: #12296b;
+    font-weight: bold;
+    line-height: 1.15;
+    padding: 2mm;
+  }
+  .header .titleblock { flex: 1; text-align: center; margin-right: 34mm; }
+  .header h1 {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: 16pt;
+    letter-spacing: 0.1px;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+  .header .sub {
+    font-size: 11pt;
+    margin-top: 1mm;
+    color: #f2c94c;
+    font-weight: bold;
+  }
+  .header .codes {
+    font-size: 8.8pt;
+    margin-top: 1.3mm;
+    color: #dbe4ff;
+  }
+  .header .tagline {
+    position: absolute;
+    right: 6mm;
+    top: 5mm;
+    width: 27mm;
+    font-style: italic;
+    font-size: 8.5pt;
+    text-align: right;
+    color: #f2c94c;
+    line-height: 1.25;
+    font-weight: bold;
+  }
+
+  /* Notice ribbon row */
+  .notice-row {
+    display: flex;
+    align-items: stretch;
+    gap: 4mm;
+  }
+  .notice-flag {
+    flex: 1;
+    background: #c62828;
+    color: #fff;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 22pt;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);
+    padding: 3mm 12mm 3mm 7mm;
+  }
+  .notice-box {
+    width: 70mm;
+    background: #12296b;
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    text-align: center;
+    padding: 2mm 2mm;
+    gap: 0.6mm;
+  }
+  .notice-box .l1 { font-size: 13pt; font-weight: 700; }
+  .notice-box .l2 { font-size: 9.5pt; }
+  .notice-box .l3 { font-size: 9pt; color: #f2c94c; font-weight: 700; }
+
+  /* Revision banner */
+  .revised-banner {
+    background: #fff3cd;
+    border: 1.5px solid #e0a800;
+    border-radius: 6px;
+    padding: 1.6mm 5.5mm;
+    font-size: 9.1pt;
+    color: #6b4f00;
+    line-height: 1.3;
+  }
+  .revised-banner b { color: #a03a00; }
+
+  /* Schedule section */
+  .schedule-title {
+    background: #12296b;
+    color: #fff;
+    text-align: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13pt;
+    padding: 1.3mm;
+    border-radius: 5px 5px 0 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.4pt;
+  }
+  thead th {
+    background: #dce6ff;
+    color: #12296b;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: 9.4pt;
+    padding: 1.2mm 2mm;
+    border: 1px solid #9fb3e0;
+    text-align: center;
+  }
+  tbody td {
+    padding: 0.7mm 2mm;
+    border: 1px solid #cdd8ef;
+    text-align: center;
+  }
+  tbody tr:nth-child(odd) { background: #fdf6e3; }
+  tbody tr:nth-child(even) { background: #eaf7ef; }
+  td.subj-name { text-align: left; padding-left: 3.5mm; font-weight: 600; }
+  td.date-cell { font-weight: 700; color: #12296b; }
+  td.day-cell { font-weight: 700; color: #12296b; }
+  td.time-cell { font-weight: 800; color: #a03a00; font-size: 9.7pt; white-space: nowrap; }
+
+  /* Duration box */
+  .duration-box {
+    background: #eef1ff;
+    border: 2px solid #b7c3f2;
+    border-radius: 7px;
+    padding: 1.6mm 5.5mm;
+    display: flex;
+    gap: 4mm;
+    align-items: flex-start;
+  }
+  .duration-box .clock {
+    width: 11mm;
+    height: 11mm;
+    border-radius: 50%;
+    border: 3px solid #12296b;
+    flex-shrink: 0;
+    position: relative;
+    margin-top: 1mm;
+  }
+  .duration-box .clock::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4mm; height: 0.8mm;
+    background: #12296b;
+    transform-origin: left center;
+    transform: translate(0,-50%) rotate(-30deg);
+  }
+  .duration-box .clock::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 2.6mm; height: 0.8mm;
+    background: #12296b;
+    transform-origin: left center;
+    transform: translate(0,-50%) rotate(90deg);
+  }
+  .duration-box .text { font-size: 9.4pt; line-height: 1.4; }
+  .duration-box .text .head {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 700;
+    color: #12296b;
+    font-size: 10.8pt;
+  }
+  .duration-box .text b { color: #a03a00; }
+  .duration-box .text .cite {
+    font-style: italic;
+    font-size: 8.2pt;
+    color: #4a4a4a;
+  }
+
+  /* Registration certificate section */
+  .reg-section {
+    background: #fff9db;
+    border: 2.5px solid #e0b400;
+    border-radius: 9px;
+    padding: 2mm 6mm 2.4mm 6mm;
+  }
+  .reg-title {
+    text-align: center;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+  }
+  .reg-title .l1 {
+    color: #c62828;
+    font-weight: 800;
+    font-size: 15.5pt;
+    letter-spacing: 1.2px;
+  }
+  .reg-title .l2 {
+    color: #12296b;
+    font-weight: 700;
+    font-size: 12.5pt;
+    letter-spacing: 1.2px;
+  }
+  .reg-intro {
+    text-align: center;
+    font-size: 9.3pt;
+    margin: 1.8mm 0 2.5mm 0;
+    color: #12296b;
+  }
+  .reg-cards {
+    display: flex;
+    gap: 4mm;
+  }
+  .reg-card {
+    flex: 1;
+    border-radius: 7px;
+    padding: 2.2mm 3mm;
+    text-align: center;
+  }
+  .reg-card.boys { background: #dbe9fb; border: 2px solid #90b8e8; }
+  .reg-card.girls { background: #fbdde7; border: 2px solid #e88fae; }
+  .reg-card .label {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    margin-bottom: 1.3mm;
+  }
+  .reg-card.boys .label { color: #12296b; }
+  .reg-card.girls .label { color: #a3134a; }
+  .reg-card .date-row {
+    font-size: 13.5pt;
+    font-weight: 800;
+    line-height: 1.45;
+  }
+  .reg-card .date-row .day { font-size: 9.3pt; font-weight: 700; color: #333; }
+  .reg-note {
+    margin-top: 2.2mm;
+    background: #fef3c7;
+    border-radius: 5px;
+    padding: 1.6mm 4mm;
+    font-size: 9pt;
+    text-align: center;
+    color: #6b4f00;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1mm 4mm 0 4mm;
+    font-size: 9.6pt;
+    font-style: italic;
+    color: #12296b;
+  }
+  .footer .right { text-align: right; font-style: normal; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="header">
+    <div class="crest">TALDANGRA<br>FULMATI HIGH<br>SCHOOL<br>ESTD. 1956</div>
+    <div class="titleblock">
+      <h1>TALDANGRA FULMATI HIGH SCHOOL (H.S.)</h1>
+      <div class="sub">Taldangra Block, Khatra Sub-Division, Dist. Bankura</div>
+      <div class="codes">WBBSE Index No. : U1-083 &nbsp;|&nbsp; WBCHSE Institution Code : 114071<br>WBSCV&amp;T VTC Code : 5006</div>
+    </div>
+    <div class="tagline">Education Builds a Better Tomorrow</div>
+  </div>
+
+  <div class="notice-row">
+    <div class="notice-flag">NOTICE</div>
+    <div class="notice-box">
+      <div class="l1">Class XI</div>
+      <div class="l2">Examination Programme</div>
+      <div class="l3">(2026) — Revised</div>
+    </div>
+  </div>
+
+  <div class="revised-banner">
+    <b>Revised as per WBCHSE Notification No. L/PR/318/2026 dated 19.08.2026:</b>
+    the duration of examination for all subjects (except Visual Arts, Music and Vocational Subjects) has been fixed at
+    <b>1 hour 30 minutes</b>, as per Notification No. WBCHSE/Examination(Amend.)/Gaz-01/2026 dated 24.02.2026.
+    Exam timings below stand corrected accordingly.
+  </div>
+
+  <div>
+    <div class="schedule-title">Subject-Wise Examination Schedule</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:6%">Sl.<br>No.</th>
+          <th style="width:11%">Subject<br>Code</th>
+          <th style="width:32%">Subject Name</th>
+          <th style="width:13%">Exam Date</th>
+          <th style="width:12%">Day</th>
+          <th style="width:18%">Time</th>
+          <th style="width:8%">Student<br>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>BNGA</td><td class="subj-name">Bengali (A)</td><td class="date-cell">21.09.2026</td><td class="day-cell">Monday</td><td class="time-cell">2:00–3:30 pm</td><td>249</td></tr>
+        <tr><td>2</td><td>SANT</td><td class="subj-name">Santhali</td><td class="date-cell">21.09.2026</td><td class="day-cell">Monday</td><td class="time-cell">2:00–3:30 pm</td><td>1</td></tr>
+        <tr><td>3</td><td>ENGB</td><td class="subj-name">English (B)</td><td class="date-cell">24.09.2026</td><td class="day-cell">Thursday</td><td class="time-cell">2:00–3:30 pm</td><td>250</td></tr>
+        <tr><td>4</td><td>PHYS</td><td class="subj-name">Physics</td><td class="date-cell">28.09.2026</td><td class="day-cell">Monday</td><td class="time-cell">2:00–3:30 pm</td><td>77</td></tr>
+        <tr><td>5</td><td>COMA</td><td class="subj-name">Modern Computer Application</td><td class="date-cell">29.09.2026</td><td class="day-cell">Tuesday</td><td class="time-cell">2:00–3:30 pm</td><td>188</td></tr>
+        <tr><td>6</td><td>COMS</td><td class="subj-name">Computer Science</td><td class="date-cell">29.09.2026</td><td class="day-cell">Tuesday</td><td class="time-cell">2:00–3:30 pm</td><td>12</td></tr>
+        <tr><td>7</td><td>CHEM</td><td class="subj-name">Chemistry</td><td class="date-cell">01.10.2026</td><td class="day-cell">Thursday</td><td class="time-cell">2:00–3:30 pm</td><td>77</td></tr>
+        <tr><td>8</td><td>GEGR</td><td class="subj-name">Geography</td><td class="date-cell">01.10.2026</td><td class="day-cell">Thursday</td><td class="time-cell">2:00–3:30 pm</td><td>100</td></tr>
+        <tr><td>9</td><td>PHIL</td><td class="subj-name">Philosophy</td><td class="date-cell">03.10.2026</td><td class="day-cell">Saturday</td><td class="time-cell">2:00–3:30 pm</td><td>151</td></tr>
+        <tr><td>10</td><td>MATH</td><td class="subj-name">Mathematics</td><td class="date-cell">05.10.2026</td><td class="day-cell">Monday</td><td class="time-cell">2:00–3:30 pm</td><td>50</td></tr>
+        <tr><td>11</td><td>SNSK</td><td class="subj-name">Sanskrit</td><td class="date-cell">05.10.2026</td><td class="day-cell">Monday</td><td class="time-cell">2:00–3:30 pm</td><td>135</td></tr>
+        <tr><td>12</td><td>BIOS</td><td class="subj-name">Biological Science</td><td class="date-cell">07.10.2026</td><td class="day-cell">Wednesday</td><td class="time-cell">2:00–3:30 pm</td><td>68</td></tr>
+        <tr><td>13</td><td>POLS</td><td class="subj-name">Political Science</td><td class="date-cell">07.10.2026</td><td class="day-cell">Wednesday</td><td class="time-cell">2:00–3:30 pm</td><td>19</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="duration-box">
+    <div class="clock"></div>
+    <div class="text">
+      <div class="head">EXAM DURATION (As revised, 2026)</div>
+      All theory papers (except Visual Arts, Music and Vocational Subjects) : <b>1 Hour 30 Minutes (2:00–3:30 pm)</b><br>
+      Visual Arts, Music and Vocational Subjects (if any) : <b>1 Hour (2:00 pm – 3:00 pm)</b><br>
+      <span class="cite">(As per WBCHSE Notification No. WBCHSE/Examination(Amend.)/Gaz-01/2026 dated 24.02.2026, reiterated vide No. L/PR/318/2026 dated 19.08.2026)</span>
+    </div>
+  </div>
+
+  <div class="reg-section">
+    <div class="reg-title">
+      <div class="l1">REGISTRATION CERTIFICATE</div>
+      <div class="l2">DISTRIBUTION NOTICE</div>
+    </div>
+    <div class="reg-intro">All Class XI examinees are hereby informed that their Registration Certificates will be distributed as per the following revised schedule:</div>
+    <div class="reg-cards">
+      <div class="reg-card boys">
+        <div class="label">For Boys</div>
+        <div class="date-row">10.09.2026 <span class="day">(Thursday)</span></div>
+        <div class="date-row">12.09.2026 <span class="day">(Saturday)</span></div>
+      </div>
+      <div class="reg-card girls">
+        <div class="label">For Girls</div>
+        <div class="date-row">11.09.2026 <span class="day">(Friday)</span></div>
+        <div class="date-row">15.09.2026 <span class="day">(Tuesday)</span></div>
+      </div>
+    </div>
+    <div class="reg-note">📌 Students are directed to collect their Registration Certificates on the above dates from 12:00 noon to 2:00 p.m. within the stipulated time.</div>
+  </div>
+
+  <div class="footer">
+    <div>With Best Wishes<br>Taldangra Fulmati High School (H.S.)</div>
+    <div class="right">Sd/-<br>Headmaster<br>Taldangra Fulmati High School (H.S.)</div>
+  </div>
+
+</div>
+</body>
+</html>
